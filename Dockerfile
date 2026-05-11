@@ -15,6 +15,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
+# Create the runtime user now; COPY and pip install still run as root below.
+RUN adduser --system --no-create-home --group app
+
 # Copy requirements first and install them in their own layer. Source code
 # changes far more often than dependencies, so this lets Docker reuse the
 # cached dependency layer on subsequent builds.
@@ -25,10 +28,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # excluded via .dockerignore so they never enter the image.
 COPY src/ ./src/
 
-# Create and switch to a non-root user. Running containers as root is a
-# common production mistake; if the process is ever compromised, an
-# unprivileged user dramatically limits the blast radius.
-RUN adduser --system --no-create-home --group app
+# Drop privileges before the container starts. Running as root is a common
+# production mistake; an unprivileged user limits the blast radius if the
+# process is compromised.
 USER app
 
-CMD ["python", "src/adls_client.py"]
+CMD ["python", "/app/src/adls_client.py"]
