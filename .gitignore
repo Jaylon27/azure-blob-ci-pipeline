@@ -20,3 +20,5 @@ pytest-output.txt
 dist/
 build/
 *.egg-info/
+
+SUBMISSION_EMAIL.md
