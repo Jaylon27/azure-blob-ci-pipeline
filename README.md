@@ -6,12 +6,12 @@ A small Python project that lists blobs from a public Azure Blob Storage contain
 
 ```
 .
-├── .github/workflows/pipeline.yml   # lint -> test CI pipeline
-├── src/adls_client.py               # filter_blobs + main()
-├── tests/test_adls_client.py        # pytest suite
-├── Dockerfile                       # hardened image
-├── .dockerignore                    # keeps build context lean
-├── pyproject.toml                   # pytest + ruff config
+├── .github/workflows/pipeline.yml 
+├── src/adls_client.py              
+├── tests/test_adls_client.py        
+├── Dockerfile                      
+├── .dockerignore                   
+├── pyproject.toml                  
 └── requirements.txt
 ```
 
