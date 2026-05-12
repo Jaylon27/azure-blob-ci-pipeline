@@ -34,8 +34,8 @@ def test_filter_blobs_preserves_order():
 
 
 def test_filter_blobs_is_case_sensitive():
-    # Documents the chosen behavior: filter_blobs is case-sensitive.
-    # The public dataset uses lowercase ".csv.gz" so this is safe; we
+    # filter_blobs is case-sensitive.
+    # The public dataset uses lowercase ".csv.gz" so this is safe; I
     # surface the trade-off in the submission notes.
     blob_names = ["UPPER.CSV.GZ", "lower.csv.gz"]
     assert filter_blobs(blob_names, ".csv.gz") == ["lower.csv.gz"]
@@ -43,7 +43,7 @@ def test_filter_blobs_is_case_sensitive():
 
 def test_filter_blobs_empty_extension_returns_empty():
     # Without this guard, "".endswith("") is True for every string, so
-    # an empty extension would silently return the entire input. We
+    # an empty extension would silently return the entire input. I
     # explicitly choose to return [] instead.
     assert filter_blobs(["a.csv.gz", "b.txt"], "") == []
 
