@@ -28,8 +28,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # excluded via .dockerignore so they never enter the image.
 COPY src/ ./src/
 
-# Drop privileges before the container starts. Running as root is a common
-# production mistake; an unprivileged user limits the blast radius if the
+# Drop privileges before the container starts. An unprivileged user limits the blast radius if the
 # process is compromised.
 USER app
 
