@@ -1,10 +1,8 @@
-# Bytecode and caches — recreated at runtime; should not be in the image.
 **/__pycache__/
 **/*.py[cod]
 .pytest_cache/
 .ruff_cache/
 
-# Local environments and VCS (smaller context, nothing here is copied by Dockerfile anyway).
 .git/
 .venv/
 venv/
