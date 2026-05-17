@@ -86,6 +86,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v7
         with:
+          context: .
           push: true
           tags: ghapractice.azurecr.io/adls-client:${{ github.sha }}
           cache-from: type=registry,ref=ghapractice.azurecr.io/adls-client:buildcache
